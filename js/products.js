@@ -41,12 +41,7 @@ let bigFoot = {
 };
 
 
-// Making an array of objects
-
-let petraProducts = [elcykelAllegro, lapierreOvervolt, chromeCast, appleTv, bigFoot];
-
-
-// Making the objects to arrays
+// Making the objects to two-dimensioned arrays
 
 let elcykelAllegroArr = Object.entries(elcykelAllegro);
 let lapierreOvervoltArr = Object.entries(lapierreOvervolt);
@@ -55,10 +50,17 @@ let appleTvArr = Object.entries(appleTv);
 let bigFootArr = Object.entries(bigFoot);
 
 
-// Looping one of the entries
+// Making an array of two-dimensioned arrays
 
-for (let [prop, value] of bigFootArr) {
-  if (prop == 'category' && value == 'Leksaker') {
-  	console.log(bigFoot);
+let petraProducts = [elcykelAllegroArr, lapierreOvervoltArr, chromeCastArr, appleTvArr, bigFootArr];
+
+
+// Looping the arrays
+
+for (i = 0; i < petraProducts.length; i++) {
+  for (let [key, value] of petraProducts[i]) {
+    if (key == 'artName') {
+      console.log(value);
+    }
   }
 }
