@@ -55,21 +55,21 @@ let bigFootArr = Object.entries(bigFoot);
 let petraProducts = [elcykelAllegroArr, lapierreOvervoltArr, chromeCastArr, appleTvArr, bigFootArr];
 
 
-// Looping and printing out the arrays
+// Creating function that loops and printing out the arrays
 
-for (let i = 0; i < petraProducts.length; i++) {
-  for (let [key, value] of petraProducts[i]) {
-    console.log(`${key}: ${value}`);
+let fullList = '';
+
+function printProducts() {
+  for (let i = 0; i < petraProducts.length; i++) {
+    for (let [key, value] of petraProducts[i]) {
+      fullList += (`${key}: ${value} `);
+      document.getElementById('petra-products').innerHTML = fullList;
+    }
   }
 }
 
+printProducts();
 
-/* Building React component
 
-class petraProductList extends React.Component {
-  render() {
-    return <h1>Petra Products</h1>;
-  }
-}
 
-React.render(<petraProductList />, document.getElementById('app')); */
+//document.getElementById('petra-products').innerHTML = (`${key}: ${value}`);
