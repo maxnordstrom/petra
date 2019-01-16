@@ -57,13 +57,13 @@ let petraProducts = [elcykelAllegroArr, lapierreOvervoltArr, chromeCastArr, appl
 
 // Creating function that loops and printing out the arrays
 
-let fullList = '';
+let theRows = '';
 
 function printProducts() {
   for (let i = 0; i < petraProducts.length; i++) {
     for (let [key, value] of petraProducts[i]) {
-      fullList += (`${key}: ${value} `);
-      document.getElementById('petra-products').innerHTML = fullList;
+      theRows += (`<td>${value}</td>`);
+      document.getElementById('tbody').innerHTML = theRows;
     }
   }
 }
@@ -71,5 +71,43 @@ function printProducts() {
 printProducts();
 
 
+// Calculating price without tax, appending to object, self-invoking
+
+const tax = 12.5;
+let noTax;
+
+(function calcPriceNoTax() {
+  noTax = lapierreOvervolt.priceTax / (tax / 100 + 1);
+  noTax = Math.ceil(noTax);
+  lapierreOvervolt = Object.assign({priceNoTax: noTax}, lapierreOvervolt);
+  console.log(lapierreOvervolt);
+}());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //document.getElementById('petra-products').innerHTML = (`${key}: ${value}`);
+
+// function printProducts() {
+//   for (let i = 0; i < petraProducts.length; i++) {
+//     for (let [key, value] of petraProducts[i]) {
+//       fullList += (`${key}: ${value}`);
+//       document.getElementById('petra-products').innerHTML = fullList;
+//     }
+//   }
+// }
