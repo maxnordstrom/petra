@@ -41,31 +41,18 @@ let bigFoot = {
 };
 
 
-// Making array of objects to be able to iterate
+// Calculating and adding property of no tax
 
 let tempArray = [elcykelAllegro, lapierreOvervolt, chromeCast, appleTv, bigFoot]; // temp array to iterate over
 
-const tax = 12.5; // tax in percent
-let noTax; // making the declaration global
-
-
 for (let i = 0; i < tempArray.length; i++) {
-
+  (function calcPriceNoTax() {
+    const tax = 12.5;
+    let noTax = tempArray[i].priceTax / (tax / 100 + 1);
+    noTax = Math.ceil(noTax);
+    tempArray[i].priceNoTax = noTax;
+  }());
 }
-
-
-// Injecting the priceNoTax property
-// Calculating price without tax, appending to object, self-invoking
-
-
-
-(function calcPriceNoTax() {
-  noTax = lapierreOvervolt.priceTax / (tax / 100 + 1);
-  noTax = Math.ceil(noTax);
-  lapierreOvervolt = Object.assign({priceNoTax: noTax}, lapierreOvervolt);
-  console.log(lapierreOvervolt);
-}());
-
 
 
 // Making the objects to two-dimensioned arrays
@@ -84,7 +71,7 @@ let petraProducts = [elcykelAllegroArr, lapierreOvervoltArr, chromeCastArr, appl
 
 // Creating function that loops and printing out the arrays
 
-let theRows = '';
+let theRows = [];
 
 function printProducts() {
   for (let i = 0; i < petraProducts.length; i++) {
@@ -96,3 +83,4 @@ function printProducts() {
 }
 
 printProducts();
+//console.log(theRows);
