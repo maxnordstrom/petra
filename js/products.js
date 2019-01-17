@@ -54,33 +54,22 @@ for (let i = 0; i < tempArray.length; i++) {
   }());
 }
 
-
-// Making the objects to two-dimensioned arrays
-
-let elcykelAllegroArr = Object.entries(elcykelAllegro);
-let lapierreOvervoltArr = Object.entries(lapierreOvervolt);
-let chromeCastArr = Object.entries(chromeCast);
-let appleTvArr = Object.entries(appleTv);
-let bigFootArr = Object.entries(bigFoot);
-
-
-// Making an array of two-dimensioned arrays
-
-let petraProducts = [elcykelAllegroArr, lapierreOvervoltArr, chromeCastArr, appleTvArr, bigFootArr];
-
-
-// Creating function that loops and printing out the arrays
-
-let theRows = [];
+let myHtml = '';
 
 function printProducts() {
-  for (let i = 0; i < petraProducts.length; i++) {
-    for (let [key, value] of petraProducts[i]) {
-      theRows += (`<td>${value}</td>`);
-      document.getElementById('tbody').innerHTML = theRows;
-    }
+  for (let i = 0; i < tempArray.length; i++) {
+    myHtml += (`<tr>
+                  <td>${tempArray[i].artNumber}</td>
+                  <td>${tempArray[i].artName}</td>
+                  <td>${tempArray[i].description}</td>
+                  <td>${tempArray[i].category}</td>
+                  <td>${tempArray[i].priceTax}</td>
+                  <td>${tempArray[i].priceNoTax}</td>
+                </tr>`);
+
+
+    document.getElementById('tbody').innerHTML = myHtml;
   }
 }
 
 printProducts();
-//console.log(theRows);
