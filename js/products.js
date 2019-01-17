@@ -1,5 +1,4 @@
 // Making the product objects
-
 let elcykelAllegro = {
   artNumber: 39533028,
   artName: 'Elcykel Allegro',
@@ -41,33 +40,35 @@ let bigFoot = {
 };
 
 
+// Putting the products in an array
+let petraProducts = [elcykelAllegro, lapierreOvervolt, chromeCast, appleTv, bigFoot];
+
+
 // Calculating and adding property of no tax
-
-let tempArray = [elcykelAllegro, lapierreOvervolt, chromeCast, appleTv, bigFoot]; // temp array to iterate over
-
-for (let i = 0; i < tempArray.length; i++) {
+for (let i = 0; i < petraProducts.length; i++) {
   (function calcPriceNoTax() {
     const tax = 12.5;
-    let noTax = tempArray[i].priceTax / (tax / 100 + 1);
+    let noTax = petraProducts[i].priceTax / (tax / 100 + 1);
     noTax = Math.ceil(noTax);
-    tempArray[i].priceNoTax = noTax;
+    petraProducts[i].priceNoTax = noTax;
   }());
 }
 
+
+// Function that prints the full products list
 let myHtml = '';
 
 function printProducts() {
-  for (let i = 0; i < tempArray.length; i++) {
-    myHtml += (`<tr>
-                  <td>${tempArray[i].artNumber}</td>
-                  <td>${tempArray[i].artName}</td>
-                  <td>${tempArray[i].description}</td>
-                  <td>${tempArray[i].category}</td>
-                  <td>${tempArray[i].priceTax}</td>
-                  <td>${tempArray[i].priceNoTax}</td>
-                </tr>`);
-
-
+  for (let i = 0; i < petraProducts.length; i++) {
+    myHtml += (
+      `<tr>
+        <td>${petraProducts[i].artNumber}</td>
+        <td>${petraProducts[i].artName}</td>
+        <td>${petraProducts[i].description}</td>
+        <td>${petraProducts[i].category}</td>
+        <td>${petraProducts[i].priceTax}</td>
+        <td>${petraProducts[i].priceNoTax}</td>
+      </tr>`);
     document.getElementById('tbody').innerHTML = myHtml;
   }
 }
