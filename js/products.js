@@ -74,3 +74,17 @@ function printProducts() {
 }
 
 printProducts();
+
+
+// // Creating IF statement that filters by URL
+// let myURL = window.location.pathname;
+
+// if (myURL.includes('index.html' && 'leksaker')) {
+//   //FILTER AND PRINT OUT OBJECTS WITH CATEGORY LEKSAKER
+// } else if (myURL.includes('index.html' && 'sport')) {
+//   //FILTER AND PRINT OUT OBJECTS WITH CATEGORY SPORT
+// } else if (myURL.includes('index.html' && 'sport' && 'elcykel-allegro')) {
+//   //FILTER AND PRINT OUT OBJECTS WITH artName 'Elcykel Allegro'
+// } else {
+//   printProducts();
+// }
