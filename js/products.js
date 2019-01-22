@@ -73,7 +73,18 @@ function printProducts() {
   }
 }
 
-printProducts();
+// printProducts();
+let pathName = window.location.pathname.split('/');
+console.log(pathName);
+
+if (pathName[1] == 'petra') {
+  printProducts(); //CALL DATABASE HERE
+} else if (pathName[2] == true) {
+  //FILTER BY CATEGORY
+} else if (pathName[3] == true) {
+  //FILTER BY PRODUCT NAME
+};
+
 
 
 // // Creating IF statement that filters by URL

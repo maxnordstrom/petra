@@ -1,3 +1,7 @@
+<?php
+extract(parse_ini_file(__FILE__ . ‘.env’));
+?>
+
 <!doctype html>
 <html class="no-js" lang="">
 
