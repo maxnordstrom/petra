@@ -1,3 +1,8 @@
+<?php
+
+$theCoolProds = query("SELECT * FROM product WHERE cat = 'leksaker'");
+?>
+
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -12,9 +17,9 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 
 <body>
@@ -78,19 +83,19 @@
         Submit-button (here's where it gets written to database) -->
 
 
-  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="../js/vendor/modernizr-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="../js/plugins.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
 
   <!-- Load React -->
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
   <!-- Load React components -->
-  <script src="js/products.js"></script>
+  <script src="../js/products.js"></script>
 </body>
 
 </html>
