@@ -37,7 +37,7 @@
     </thead>
     <tbody id="tbody">
       <!-- products.js will return data here -->
-      <?php include('products.php'); ?>
+      <?php include('db.php'); ?>
     </tbody>
   </table>
 

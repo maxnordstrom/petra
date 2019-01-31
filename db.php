@@ -1,6 +1,5 @@
 <?php
 
-
 // Wrap this in function
 
 error_reporting(E_ALL);
@@ -20,13 +19,23 @@ try {
 }
 
 
-// Wrap this in a function
+// Get the URI and make a neat array
+$currentURI = $_SERVER['REQUEST_URI'];
+$currentURI = explode("/",$currentURI);
+array_shift($currentURI);
+array_pop($currentURI);
+var_dump($currentURI); //dump for testing purpose
 
-$stmt = $pdo->query('SELECT * FROM product');
-foreach ($stmt as $row) {
-  echo $row['art_no'] . "\n";
-  echo $row['art_name'] . "\n";
-  echo $row['description'] . "\n";
-  echo $row['cat'] . "\n";
-  echo $row['price_tax'] . "\n";
+// Fetching products depending on URI
+if ($currentURI[0] == "petra") {
+  $stmt = $pdo->query('SELECT * FROM product');
+  foreach ($stmt as $row) {
+    echo '<tr><td>' . $row['art_no'] . '</td>';
+    echo '<td>' . $row['art_name'] . '</td>';
+    echo '<td>' . $row['description'] . '</td>';
+    echo '<td>' . $row['cat'] . '</td>';
+    echo '<td>' . $row['price_tax'] . '</td></tr>';
+  }
+} else {
+  print_r("something else");
 }

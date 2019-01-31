@@ -1,6 +1,6 @@
 <?php
 
-$theCoolProds = query("SELECT * FROM product WHERE art_name = 'elcykel'");
+// $theCoolProds = query("SELECT * FROM product WHERE art_name = 'elcykel'");
 ?>
 
 <!doctype html>
@@ -42,6 +42,7 @@ $theCoolProds = query("SELECT * FROM product WHERE art_name = 'elcykel'");
     </thead>
     <tbody id="tbody">
       <!-- products.js will return data here -->
+      <?php include('db.php'); ?>
     </tbody>
   </table>
 
