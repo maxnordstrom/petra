@@ -11,23 +11,36 @@ array_shift($currentURI);
 array_pop($currentURI);
 
 
-// Fetching products depending on URI
-if (count($currentURI) == 3 && $currentURI[2] == 'elcykel-allegro') { //check if any product is present
-  var_dump($currentURI);
-
-} elseif (count($currentURI) == 2 && $currentURI[1] == 'leksaker') { //check if any category is present
-  var_dump($currentURI);
-
-} else { //print all products
-  $stmt = $pdo->query('SELECT * FROM product');
-  var_dump($currentURI);
-  foreach ($stmt as $row) {
+// Function that prints out the data
+function printData($data) {
+  foreach ($data as $row) {
     echo '<tr><td>' . $row['art_no'] . '</td>';
     echo '<td>' . $row['art_name'] . '</td>';
     echo '<td>' . $row['description'] . '</td>';
     echo '<td>' . $row['cat'] . '</td>';
     echo '<td>' . $row['price_tax'] . '</td></tr>';
   }
+}
+
+
+// Printing products depending on URI
+if (count($currentURI) == 3) {              //check if any product is present
+  $currentProd = $currentURI[2];            //get the product URI
+  $currentProd = str_replace("-", " ", $currentProd);   //edit the URI to match db value
+  $getProd = $pdo->query('SELECT * FROM product WHERE art_name LIKE "' . $currentProd . '"');
+
+  printData($getProd);
+
+} elseif (count($currentURI) == 2) {        //check if any category is present
+  $currentCat = $currentURI[1];             //get the category URI
+  $getCat = $pdo->query('SELECT * FROM product WHERE cat = "' . $currentCat . '"');
+
+  printData($getCat);
+
+} else { //print all products
+  $getAllProds = $pdo->query('SELECT * FROM product');
+
+  printData($getAllProds);
 }
 
 
