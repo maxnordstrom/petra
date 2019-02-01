@@ -1,6 +1,6 @@
 <?php
 
-// $theCoolProds = query("SELECT * FROM product WHERE art_name = 'elcykel'");
+// $theCoolProds = query("SELECT * FROM product WHERE cat = 'leksaker'");
 ?>
 
 <!doctype html>
