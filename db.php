@@ -19,16 +19,24 @@ try {
 }
 
 
+
 // Get the URI and make a neat array
 $currentURI = $_SERVER['REQUEST_URI'];
 $currentURI = explode("/",$currentURI);
 array_shift($currentURI);
 array_pop($currentURI);
-var_dump($currentURI); //dump for testing purpose
+
 
 // Fetching products depending on URI
-if ($currentURI[0] == "petra") {
+if (count($currentURI) == 3 && $currentURI[2] == 'elcykel-allegro') { //check if any product is present
+  var_dump($currentURI);
+
+} elseif (count($currentURI) == 2 && $currentURI[1] == 'leksaker') { //check if any category is present
+  var_dump($currentURI);
+
+} else { //print all products
   $stmt = $pdo->query('SELECT * FROM product');
+  var_dump($currentURI);
   foreach ($stmt as $row) {
     echo '<tr><td>' . $row['art_no'] . '</td>';
     echo '<td>' . $row['art_name'] . '</td>';
@@ -36,6 +44,4 @@ if ($currentURI[0] == "petra") {
     echo '<td>' . $row['cat'] . '</td>';
     echo '<td>' . $row['price_tax'] . '</td></tr>';
   }
-} else {
-  print_r("something else");
 }
