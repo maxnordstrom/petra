@@ -3,6 +3,54 @@
 // Bootstrap database
 include('db.php');
 
+
+// Get the URI and make a neat array
+$currentURI = $_SERVER['REQUEST_URI'];
+$currentURI = explode("/",$currentURI);
+array_shift($currentURI);
+array_pop($currentURI);
+
+
+// Fetching products depending on URI
+if (count($currentURI) == 3 && $currentURI[2] == 'elcykel-allegro') { //check if any product is present
+  var_dump($currentURI);
+
+} elseif (count($currentURI) == 2 && $currentURI[1] == 'leksaker') { //check if any category is present
+  var_dump($currentURI);
+
+} else { //print all products
+  $stmt = $pdo->query('SELECT * FROM product');
+  var_dump($currentURI);
+  foreach ($stmt as $row) {
+    echo '<tr><td>' . $row['art_no'] . '</td>';
+    echo '<td>' . $row['art_name'] . '</td>';
+    echo '<td>' . $row['description'] . '</td>';
+    echo '<td>' . $row['cat'] . '</td>';
+    echo '<td>' . $row['price_tax'] . '</td></tr>';
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // $queryString = "SELECT * FROM product";
 // $theCoolProds = query($queryString);  //det är theCoolProds som returneras result
 
@@ -27,34 +75,3 @@ include('db.php');
 //     petraProducts[i].priceNoTax = noTax;
 //   }());
 // }
-
-
-// // Function that prints the full products list
-// let myHtml = '';
-
-// function printProducts() {
-//   for (let i = 0; i < petraProducts.length; i++) {
-//     myHtml += (
-//       `<tr>
-//         <td>${petraProducts[i].artNumber}</td>
-//         <td>${petraProducts[i].artName}</td>
-//         <td>${petraProducts[i].description}</td>
-//         <td>${petraProducts[i].category}</td>
-//         <td>${petraProducts[i].priceTax}</td>
-//         <td>${petraProducts[i].priceNoTax}</td>
-//       </tr>`);
-//     document.getElementById('tbody').innerHTML = myHtml;
-//   }
-// }
-
-// // printProducts();
-// let pathName = window.location.pathname.split('/');
-// console.log(pathName);
-
-// if (pathName[1] == 'petra') {
-//   printProducts(); //CALL DATABASE HERE
-// } else if (pathName[2] == true) {
-//   //FILTER BY CATEGORY
-// } else if (pathName[3] == true) {
-//   //FILTER BY PRODUCT NAME
-// };
