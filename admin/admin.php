@@ -3,45 +3,16 @@
 include('../db.php');
 include('../products.php');
 
-
-
-
-// $rs = $pdo->query('SELECT * FROM product LIMIT 0');
-// for ($i = 0; $i < $rs->columnCount(); $i++) {
-//     $col = $rs->getColumnMeta($i);
-//     $columns[] = $col['name'];
-// }
-// foreach ($columns as $row) {
-//   echo '<option>' . $row . '</option>';
-// }
-
-
 ?>
-
-
-<!--
-Formulär måste ha action och method attribut.
-Action definierar var formulärdatan ska skickas
-  - localhost:8080/petra/admin/product/update (snyggast.nu)
-  - db.php (fil)
-Method
-  - POST
-  HTTP request methods
-  CRUD (create, read, update, delete)
-
-dit formulärdatan post:as, det är där du vill ha din update-query
-form-data finns i $_POST variabeln
-$_POST['art_no'] -> spara i databasen
--->
 
 
 <div class="admin-wrapper container border p-4 mt-5">
   <h5 class="ml-3">Admin panel:</h5>
 
-  <form class="admin-panel d-sm-flex">
+  <form method="post" action="admin-script.php" class="admin-panel d-sm-flex">
     <div class="form-group col-md-3 col-sm-12">
       <label for="artikelnummer">Produkt att redigera</label>
-      <select class="form-control form-control-sm" id="artikelnummer">
+      <select class="form-control form-control-sm" id="art_name" name="article-name">
 
         <?php // Get article names
 
@@ -57,7 +28,7 @@ $_POST['art_no'] -> spara i databasen
     </div>
     <div class="form-group col-md-3 col-sm-12">
       <label for="edit-value">Fält att redigera</label>
-      <select class="form-control form-control-sm" id="edit-value">
+      <select class="form-control form-control-sm" id="edit-value" name="row-to-edit">
 
         <?php  // Get column names
 
@@ -77,9 +48,8 @@ $_POST['art_no'] -> spara i databasen
     </div>
     <div class="form-group col-md-3 col-sm-12">
       <label for="new-value">Nytt värde</label>
-      <textarea class="form-control" id="new-value" rows="1"></textarea>
-      <!-- TAKE THIS VALUE AND WRITE TO DATABASE -->
+      <textarea class="form-control" id="new-value" rows="1" name="new-value"></textarea>
     </div>
-    <button type="submit" class="submit-btn btn btn-primary col-md-3 col-sm-12">Skicka</button>
+    <button name="update" type="submit" class="submit-btn btn btn-primary col-md-3 col-sm-12">Uppdatera</button>
   </form>
 </div>
