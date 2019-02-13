@@ -10,16 +10,11 @@ $rowToEdit =   $_POST['row-to-edit'] ?? '';
 $newValue =    $_POST['new-value'] ?? '';
 
 
-// // Update database
-// $sql = 'UPDATE product SET' . $newValue . ' = :newValue WHERE';
-// $stmt = $pdo->prepare($sql);
-// $stmt->execute([
-//                 'course_id'     => $courseID,
-//                 'course_date'   => $courseDate,
-//                 'company_name'  => $companyName,
-//                 'company_phone' => $companyPhone,
-//                 'company_email' => $companyEmail,
-//                 'participant_name'  => $participantName,
-//                 'participant_phone' => $participantPhone,
-//                 'participant_email' => $participantEmail
-//               ]);
+// Update database
+$sql = 'UPDATE product SET ' . $newValue . ' = :newVal WHERE ' . $rowToEdit . ' = :rowToEdit AND ' . $articleName . ' = :articleName';
+$stmt = $pdo->prepare($sql);
+$stmt->execute([
+                'newVal'     => $newValue,
+                'articleName'   => $articleName,
+                'rowToEdit'  => $rowToEdit,
+              ]);
