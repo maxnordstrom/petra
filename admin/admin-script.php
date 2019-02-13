@@ -5,16 +5,11 @@ include('../db.php');
 
 
 // Get user input
-$articleName = $_POST['article-name'] ?? '';
-$rowToEdit =   $_POST['row-to-edit'] ?? '';
-$newValue =    $_POST['new-value'] ?? '';
+$articleName = $_POST['article-name'];
+$columnToEdit =   $_POST['column-to-edit'];
+$newValue =    $_POST['new-value'];
 
 
 // Update database
-$sql = 'UPDATE product SET ' . $newValue . ' = :newVal WHERE ' . $rowToEdit . ' = :rowToEdit AND ' . $articleName . ' = :articleName';
-$stmt = $pdo->prepare($sql);
-$stmt->execute([
-                'newVal'     => $newValue,
-                'articleName'   => $articleName,
-                'rowToEdit'  => $rowToEdit,
-              ]);
+$sql = 'UPDATE product SET ' . $columnToEdit . ' = "' . $newValue . '" WHERE art_name = "' . $articleName . '"';
+$pdo->query($sql);

@@ -28,7 +28,7 @@ include('../products.php');
     </div>
     <div class="form-group col-md-3 col-sm-12">
       <label for="edit-value">Fält att redigera</label>
-      <select class="form-control form-control-sm" id="edit-value" name="row-to-edit">
+      <select class="form-control form-control-sm" id="edit-value" name="column-to-edit">
 
         <?php  // Get column names
 
