@@ -11,14 +11,18 @@ array_shift($currentURI);
 array_pop($currentURI);
 
 
-// Function that prints out the data
+
+
+// Function that prints out the data and sets unique ID:s
 function printData($data) {
+  $uniqueId = 0;
   foreach ($data as $row) {
-    echo '<tr class="table-row" id="product-row"><td>' . $row['art_no'] . '</td>';
+    $uniqueId++;
+    echo '<tr class="table-row" id="product-row-'. $uniqueId .'"><td>' . $row['art_no'] . '</td>';
     echo '<td>' . $row['art_name'] . '</td>';
     echo '<td>' . $row['description'] . '</td>';
     echo '<td>' . $row['cat'] . '</td>';
-    echo '<td>' . $row['price_tax'] . '</td></tr>';
+    echo '<td id="price-tax-' . $uniqueId .'">' . $row['price_tax'] . '</td></tr>';
   }
 }
 
@@ -42,49 +46,3 @@ if (count($currentURI) == 3) {              //check if any product is present
 
   printData($getAllProds);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// $queryString = "SELECT * FROM product";
-// $theCoolProds = query($queryString);  //det är theCoolProds som returneras result
-
-// var_dump($theCoolProds);
-
-
-
-
-
-
-
-// // Database call to calculate number of products
-// $petraProductsLength = 5;
-
-
-// // Calculating and adding property of no tax
-// for ($i = 0; $i < $petraProductsLength; $i++) {
-//   ($calcPriceNoTax = function() {
-//     $tax = 12.5;
-//     $noTax = petraProducts[i].priceTax / (tax / 100 + 1);
-//     $noTax = Math.ceil(noTax);
-//     petraProducts[i].priceNoTax = noTax;
-//   }());
-// }
