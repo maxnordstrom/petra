@@ -53,3 +53,24 @@ include('../products.php');
     <button name="update" type="submit" class="submit-btn btn btn-primary col-md-3 col-sm-12">Uppdatera</button>
   </form>
 </div>
+
+<table class="table-bordered table-sm mt-5">
+    <thead>
+      <th scope="col">Artikel nr</th>
+      <th scope="col">Artikel namn</th>
+      <th scope="col">Beskrivning</th>
+      <th scope="col">Kategori</th>
+      <th scope="col">Pris i kr inkl. moms</th>
+      <th scope="col">Pris i kr exkl. moms</th>
+    </thead>
+    <tbody id="tbody">
+
+      <?php
+
+      $getAllProds = $pdo->query('SELECT * FROM product');
+      printData($getAllProds);
+
+      ?>
+
+    </tbody>
+  </table>
