@@ -14,7 +14,7 @@ array_pop($currentURI);
 // Function that prints out the data
 function printData($data) {
   foreach ($data as $row) {
-    echo '<tr><td>' . $row['art_no'] . '</td>'; // Värt att spara varje i en egen variabel?
+    echo '<tr class="table-row" id="product-row"><td>' . $row['art_no'] . '</td>';
     echo '<td>' . $row['art_name'] . '</td>';
     echo '<td>' . $row['description'] . '</td>';
     echo '<td>' . $row['cat'] . '</td>';

@@ -104,6 +104,7 @@ include('../products.php');
   <script src="../js/main.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/refresh-admin.js"></script>
+  <script src="../js/calculate-no-tax.js"></script>
 
 </body>
 
