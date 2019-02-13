@@ -1,6 +1,5 @@
 jQuery(document).ready(function() {
 
-
   // Set variable to number of table rows
   let $numberOfRows = document.getElementsByClassName("table-row").length;
 
