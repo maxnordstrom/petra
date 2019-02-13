@@ -42,3 +42,49 @@ if (count($currentURI) == 3) {              //check if any product is present
 
   printData($getAllProds);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// $queryString = "SELECT * FROM product";
+// $theCoolProds = query($queryString);  //det är theCoolProds som returneras result
+
+// var_dump($theCoolProds);
+
+
+
+
+
+
+
+// // Database call to calculate number of products
+// $petraProductsLength = 5;
+
+
+// // Calculating and adding property of no tax
+// for ($i = 0; $i < $petraProductsLength; $i++) {
+//   ($calcPriceNoTax = function() {
+//     $tax = 12.5;
+//     $noTax = petraProducts[i].priceTax / (tax / 100 + 1);
+//     $noTax = Math.ceil(noTax);
+//     petraProducts[i].priceNoTax = noTax;
+//   }());
+// }
