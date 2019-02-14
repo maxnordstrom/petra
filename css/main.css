@@ -106,12 +106,22 @@ textarea {
   margin-top: 1.5rem;
 }
 
+/* Styling the hidden frame */
 .hide {
   position:absolute;
   top:-1px;
   left:-1px;
   width:1px;
   height:1px;
+}
+
+/* Give horizontal scroll to table */
+@media only screen and (max-width: 1060px) {
+  table {
+    display: block!important;
+    overflow-x: auto!important;
+    white-space: nowrap!important;
+  }
 }
 
 /* ==========================================================================

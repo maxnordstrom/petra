@@ -21,9 +21,3 @@ $vars = [
 $sql = 'UPDATE product SET ' . $columnToEdit . ' = :newValue WHERE art_name = :articleName';
 $stmt = $pdo->prepare($sql);
 $stmt->execute($vars);
-
-
-
-
-// Sätt in en if statement som kollar att $_POST inte är tom
-// Fixa scroll på tabellen vid mindre skärm

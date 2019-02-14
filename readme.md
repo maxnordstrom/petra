@@ -12,4 +12,4 @@ Navigate to **petra/admin** to access an admin view. Here you can edit any produ
 
 ## Local environment
 
-I've set up this project using MAMP. Put the project folder in your root directory (in my case **htdocs**), and import the original database which is located in the **database folder**. Database name is **petra_db**
+I've set up this project using MAMP. Put the project folder in your root directory (in my case **htdocs**), and import the original database which is zipped and located in the **database folder**. Database name is **petra_db**
