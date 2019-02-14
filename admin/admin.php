@@ -30,7 +30,6 @@ include('../products.php');
 
 <div class="admin-wrapper container border p-4 mt-5">
   <h5 class="ml-3">Admin panel:</h5>
-
   <form method="post" action="admin-script.php" target="hiddenFrame" class="admin-panel d-sm-flex" id="admin-update-form">
     <div class="form-group col-md-3 col-sm-12">
       <label for="artikelnummer">Produkt att redigera</label>
@@ -39,6 +38,8 @@ include('../products.php');
         <?php // Get article names
 
           $getArtName = $pdo->query('SELECT art_name FROM product');
+
+          echo '<option selected="true" disabled>Välj produkt</option>';
 
           foreach ($getArtName as $row) {
             echo '<option>' . $row['art_name'] . '</option>';
@@ -49,10 +50,12 @@ include('../products.php');
       </select>
     </div>
     <div class="form-group col-md-3 col-sm-12">
-      <label for="edit-value">Fält att redigera</label>
+      <label for="edit-value">Kolumn att redigera</label>
       <select class="form-control form-control-sm" id="edit-value" name="column-to-edit">
 
         <?php  // Get column names
+
+          echo '<option selected="true" disabled>Välj kolumn</option>';
 
           $rs = $pdo->query('SELECT * FROM product LIMIT 0');
           for ($i = 0; $i < $rs->columnCount(); $i++) {
